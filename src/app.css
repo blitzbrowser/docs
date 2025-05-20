@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+    --font-display: "Geist", "sans-serif";
+}
+
+* {
+    @apply font-display;
+}
+
+.btn-primary {
+    @apply rounded-lg;
+    background-color: var(--color-yellow-400);
+    padding-inline: --spacing(5);
+    padding-block: --spacing(2);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-neutral-900);
+}
+
+.btn-primary-outline {
+    @apply rounded-lg;
+    border-width: 1px;
+    border-color: var(--color-neutral-200);
+    padding-inline: --spacing(5);
+    padding-block: --spacing(2);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-neutral-900);
+}
+
+.btn-primary-outline.border-yellow-400 {
+    @apply border-yellow-400;
+}
