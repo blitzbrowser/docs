@@ -1,0 +1,1 @@
+<h1 class="text-4xl font-semibold">How to use BlitzBrowser with Crawl4AI</h1>
