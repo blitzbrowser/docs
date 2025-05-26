@@ -1,9 +1,0 @@
-<code class="language-python"><span class="token keyword">from</span> playwright<span class="token punctuation">.</span>sync_api <span class="token keyword">import</span> sync_playwright<span class="token punctuation">,</span> Playwright
-<span class="token keyword">import</span> os
-
-<span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>playwright<span class="token punctuation">:</span> Playwright<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    browser <span class="token operator">=</span> playwright<span class="token punctuation">.</span>chromium<span class="token punctuation">.</span>connect_over_cdp<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"wss://cdp.blitzbrowser.com?accessKey=</span><span class="token interpolation"><span class="token punctuation">{</span>os<span class="token punctuation">.</span>environ<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'BLITZBROWSER_ACCESS_KEY'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
-    page <span class="token operator">=</span> browser<span class="token punctuation">.</span>new_page<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token keyword">with</span> sync_playwright<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> playwright<span class="token punctuation">:</span>
-    run<span class="token punctuation">(</span>playwright<span class="token punctuation">)</span></code>

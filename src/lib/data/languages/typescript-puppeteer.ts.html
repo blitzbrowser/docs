@@ -1,5 +1,7 @@
-<code class="language-typescript"><span class="token keyword">import</span> puppeteer <span class="token keyword">from</span> <span class="token string">'puppeteer'</span><span class="token punctuation">;</span>
+<code
+    class="language-typescript"><span class="token keyword">import</span> puppeteer <span class="token keyword">from</span> <span class="token string">'puppeteer'</span><span class="token punctuation">;</span>
 
+<span class="token comment">// const browser = await puppeteer.launch();</span>
 <span class="token keyword">const</span> browser <span class="token operator">=</span> <span class="token keyword">await</span> puppeteer<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
     browserWSEndpoint<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">wss://cdp.blitzbrowser.com?accessKey=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">BLITZBROWSER_ACCESS_KEY</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

@@ -5,7 +5,7 @@
 		PUBLIC_UMAMI_ORIGIN,
 		PUBLIC_UMAMI_WEBSITE_ID
 	} from '$env/static/public';
-
+	import * as Accordion from '$lib/components/ui/accordion';
 	import { page } from '$app/state';
 
 	let is_navbar_open = $state(false);
@@ -28,7 +28,7 @@
 					slug: '/connect-playwright-to-blitzbrowser'
 				}
 			]
-		}
+		},
 	];
 </script>
 
@@ -50,7 +50,7 @@
 				class="flex flex-row items-center gap-1"
 			>
 				<img alt="BlitzBrowser logo" class="h-8" src="/logo-color.svg" />
-				<span class="text-3xl font-extrabold">BlitzBrowser | Docs</span>
+				<span class="text-2xl font-extrabold lg:text-3xl">BlitzBrowser | Docs</span>
 			</a>
 		</div>
 		<button
@@ -104,7 +104,31 @@
 		</div>
 	</div>
 	{#if is_navbar_open}
-		<div class="container mx-auto mt-4 flex flex-col">
+		<div class="container mx-auto mt-4 flex flex-col gap-4">
+			<Accordion.Root type="single">
+				{#each menus as menu}
+					<Accordion.Item>
+						<div class="flex flex-col gap-2">
+							<Accordion.Trigger class="font-semibold">
+								{menu.label}
+							</Accordion.Trigger>
+							<div class="flex flex-col">
+								{#each menu.links as link}
+									<Accordion.Content>
+										<a
+											href={link.slug}
+											class={`hover:underline ${page.url.pathname === link.slug ? 'text-yellow-500' : 'hover:text-yellow-500'} py-2`}
+											onclick={() => (is_navbar_open = false)}
+										>
+											{link.label}
+										</a>
+									</Accordion.Content>
+								{/each}
+							</div>
+						</div>
+					</Accordion.Item>
+				{/each}
+			</Accordion.Root>
 			<div class="grid grid-cols-2 gap-3">
 				<a
 					data-umami-event="navbar-sign-in"
@@ -126,8 +150,8 @@
 </div>
 
 <div class="container mx-auto">
-	<div class="flex flex-row pb-12 pt-36">
-		<div class="flex w-72 flex-none flex-col gap-10">
+	<div class="flex flex-row pb-0 pt-24 lg:pt-36">
+		<div class="hidden w-72 flex-none flex-col gap-10 lg:flex">
 			{#each menus as menu}
 				<div class="flex flex-col gap-2">
 					<h2 class="text-lg font-semibold">{menu.label}</h2>
@@ -144,36 +168,35 @@
 				</div>
 			{/each}
 		</div>
-		<div class="min-h-[100dvh] w-full shrink border-l border-neutral-300 pl-8">
+		<div class="content">
 			{@render children()}
-			<div class="content border-t pt-8">
-				<h3 class="text-xl font-semibold">Contribute to the Docs</h3>
-				<p>
-					Found an issue or have an idea for an improvement? Our documentation is open source. Feel
-					free to contribute directly on GitHub.
-				</p>
-				<a
-					href="https://github.com/blitzbrowser/docs"
-					target="_blank"
-					class="flex flex-row items-center gap-2"
-				>
-					<img
-						src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
-						class="w-8 border-0"
-						alt="GitHub logo"
-					/>
-					<span>GitHub Project</span>
-				</a>
-			</div>
+			<hr />
+			<h3 class="text-xl font-semibold">Contribute to the Docs</h3>
+			<p>
+				Found an issue or have an idea for an improvement? Our documentation is open source. Feel
+				free to contribute directly on GitHub.
+			</p>
+			<a
+				href="https://github.com/blitzbrowser/docs"
+				target="_blank"
+				class="flex flex-row items-center gap-2"
+			>
+				<img
+					src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+					class="w-8 border-0"
+					alt="GitHub logo"
+				/>
+				<span>GitHub Project</span>
+			</a>
 		</div>
 	</div>
 </div>
 
 <div class="bg-neutral-100">
 	<div
-		class="container mx-auto flex flex-col justify-between px-4 py-12 lg:flex-row lg:items-center lg:px-0 lg:py-20"
+		class="container mx-auto flex flex-col gap-6 justify-between px-4 py-12 lg:flex-row lg:items-center lg:px-0 lg:py-20"
 	>
-		<div class="flex flex-col gap-3 pb-4 lg:pb-0">
+		<div class="flex flex-col gap-3">
 			<a
 				data-umami-event="footer-logo"
 				href="https://blitzbrowser.com"
@@ -193,7 +216,7 @@
 			<a data-umami-event="footer-pricing" href="https://blitzbrowser.com/#pricing">Pricing</a>
 		</div>
 		<div class="flex flex-col gap-1 lg:gap-2">
-			<a data-umami-event="footer-dev-docs" href="/"> Developer Docs </a>
+			<a data-umami-event="footer-dev-docs" href="/">Developer Docs</a>
 		</div>
 		<div class="flex flex-col gap-1 lg:gap-2">
 			<a
@@ -206,7 +229,7 @@
 				Privacy Policy
 			</a>
 		</div>
-		<div class="pt-4 lg:pt-0">
+		<div>
 			<p class="font-semibold">Contact Us</p>
 			<a
 				data-umami-event="footer-contact-us"
