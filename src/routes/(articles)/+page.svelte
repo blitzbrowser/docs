@@ -21,7 +21,7 @@
 	of headless browsers. BlitzBrowser is designed for straightforward integration with existing
 	Puppeteer and Playwright implementations.
 </p>
-<div class="grid grid-cols-2">
+<div class="grid md:grid-cols-2">
 	<a href="/connect-puppeteer-to-blitzbrowser" class="flex flex-row items-center gap-2">
 		<img
 			class="w-16 p-1"
