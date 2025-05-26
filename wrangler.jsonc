@@ -1,0 +1,9 @@
+{
+	"name": "blitzbrowser-docs",
+	"main": ".svelte-kit/cloudflare/_worker.js",
+	"compatibility_date": "2025-05-26",
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".svelte-kit/cloudflare",
+	}
+}
