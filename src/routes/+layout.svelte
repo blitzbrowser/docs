@@ -28,7 +28,7 @@
 					slug: '/connect-playwright-to-blitzbrowser'
 				}
 			]
-		},
+		}
 	];
 </script>
 
@@ -194,7 +194,7 @@
 
 <div class="bg-neutral-100">
 	<div
-		class="container mx-auto flex flex-col gap-6 justify-between px-4 py-12 lg:flex-row lg:items-center lg:px-0 lg:py-20"
+		class="container mx-auto flex flex-col justify-between gap-6 px-4 py-12 lg:flex-row lg:items-center lg:px-0 lg:py-20"
 	>
 		<div class="flex flex-col gap-3">
 			<a
@@ -229,14 +229,19 @@
 				Privacy Policy
 			</a>
 		</div>
-		<div>
-			<p class="font-semibold">Contact Us</p>
-			<a
-				data-umami-event="footer-contact-us"
-				href="mailto:support@blitzbrowser.com"
-				class="text-sm"
-			>
-				support@blitzbrowser.com
+		<div class="flex flex-col gap-2">
+			<div class="flex flex-col gap-0">
+				<p class="font-semibold">Contact Us</p>
+				<a
+					data-umami-event="footer-contact-us"
+					href="mailto:support@blitzbrowser.com"
+					class="text-sm"
+				>
+					support@blitzbrowser.com
+				</a>
+			</div>
+			<a href="https://www.reddit.com/r/BlitzBrowser/" target="_blank">
+				<img class="h-6" src="/reddit.svg" alt="Reddit logo" />
 			</a>
 		</div>
 	</div>
