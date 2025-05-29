@@ -217,6 +217,7 @@
 		</div>
 		<div class="flex flex-col gap-1 lg:gap-2">
 			<a data-umami-event="footer-dev-docs" href="/">Developer Docs</a>
+			<a data-umami-event="footer-status" href="https://status.blitzbrowser.com">Status</a>
 		</div>
 		<div class="flex flex-col gap-1 lg:gap-2">
 			<a
