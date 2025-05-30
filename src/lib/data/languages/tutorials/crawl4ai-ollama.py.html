@@ -1,0 +1,55 @@
+<code class="language-python"><span class="token keyword">import</span> asyncio
+<span class="token keyword">from</span> typing <span class="token keyword">import</span> List
+
+<span class="token keyword">from</span> crawl4ai <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> pydantic <span class="token keyword">import</span> BaseModel
+<span class="token keyword">import</span> os
+
+<span class="token comment"># Classes used as JSON schema to format the output of Gemma 3</span>
+<span class="token keyword">class</span> <span class="token class-name">Pricing</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name<span class="token punctuation">:</span> <span class="token builtin">str</span>
+    href<span class="token punctuation">:</span> <span class="token builtin">str</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PricingPlans</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    pricing_plans<span class="token punctuation">:</span> List<span class="token punctuation">[</span>Pricing<span class="token punctuation">]</span>
+
+<span class="token comment"># Browser config to use BlitzBrowser headless browsers with Chrome DevTools Protocol</span>
+browser_config <span class="token operator">=</span> BrowserConfig<span class="token punctuation">(</span>
+    headless<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    verbose<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    browser_mode<span class="token operator">=</span><span class="token string">"cdp"</span><span class="token punctuation">,</span>
+    cdp_url<span class="token operator">=</span><span class="token string-interpolation"><span class="token string">f"wss://cdp.blitzbrowser.com?accessKey=</span><span class="token interpolation"><span class="token punctuation">{</span>os<span class="token punctuation">.</span>environ<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'BLITZBROWSER_ACCESS_KEY'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment"># LLM strategy to format the data extracted</span>
+extraction_strategy <span class="token operator">=</span> LLMExtractionStrategy<span class="token punctuation">(</span>
+    llm_config<span class="token operator">=</span>LLMConfig<span class="token punctuation">(</span>provider<span class="token operator">=</span><span class="token string">"ollama/gemma3:4b"</span><span class="token punctuation">,</span> base_url<span class="token operator">=</span><span class="token string">"http://localhost:11434"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    extraction_type<span class="token operator">=</span><span class="token string">"schema"</span><span class="token punctuation">,</span>
+    schema<span class="token operator">=</span>PricingPlans<span class="token punctuation">.</span>model_json_schema<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    instruction<span class="token operator">=</span><span class="token string">"Extract all the pricing plans JSON array containing their 'name' and 'price'."</span><span class="token punctuation">,</span>
+    chunk_token_threshold<span class="token operator">=</span><span class="token number">1200</span><span class="token punctuation">,</span>
+    overlap_rate<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">,</span>
+    apply_chunking<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    input_format<span class="token operator">=</span><span class="token string">"markdown"</span><span class="token punctuation">,</span>
+    verbose<span class="token operator">=</span><span class="token boolean">True</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment"># Config for crawler</span>
+crawl_config <span class="token operator">=</span> CrawlerRunConfig<span class="token punctuation">(</span>
+    extraction_strategy<span class="token operator">=</span>extraction_strategy<span class="token punctuation">,</span>
+    cache_mode<span class="token operator">=</span>CacheMode<span class="token punctuation">.</span>BYPASS
+<span class="token punctuation">)</span>
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">async</span> <span class="token keyword">with</span> AsyncWebCrawler<span class="token punctuation">(</span>config<span class="token operator">=</span>browser_config<span class="token punctuation">)</span> <span class="token keyword">as</span> crawler<span class="token punctuation">:</span>
+        result <span class="token operator">=</span> <span class="token keyword">await</span> crawler<span class="token punctuation">.</span>arun<span class="token punctuation">(</span>url<span class="token operator">=</span><span class="token string">"https://blitzbrowser.com/"</span><span class="token punctuation">,</span> config<span class="token operator">=</span>crawl_config<span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> result<span class="token punctuation">.</span>success<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Extracted content:"</span><span class="token punctuation">,</span> result<span class="token punctuation">.</span>extracted_content<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Error:"</span><span class="token punctuation">,</span> result<span class="token punctuation">.</span>error_message<span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code>

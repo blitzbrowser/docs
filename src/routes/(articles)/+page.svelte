@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>Get Started With BlitzBrowser | BlitzBrowser Docs</title>
+</svelte:head>
+
 <h1>Get Started With BlitzBrowser</h1>
 <p>
 	Begin your BlitzBrowser integration by <a

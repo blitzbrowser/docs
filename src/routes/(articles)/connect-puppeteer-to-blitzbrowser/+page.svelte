@@ -3,6 +3,10 @@
 	import typescriptPuppeteer from '$lib/data/languages/typescript-puppeteer.ts.html?raw';
 </script>
 
+<svelte:head>
+	<title>Connect Puppeteer To BlitzBrowser | BlitzBrowser Docs</title>
+</svelte:head>
+
 <h1>Connect Puppeteer To BlitzBrowser</h1>
 <p>
 	To connect Puppeteer to BlitzBrowser, you have to change the method <code>

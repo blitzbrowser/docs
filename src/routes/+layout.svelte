@@ -28,7 +28,16 @@
 					slug: '/connect-playwright-to-blitzbrowser'
 				}
 			]
-		}
+		},
+		{
+			label: 'Tutorials',
+			links: [
+				{
+					label: 'Crawl with Crawl4AI, Ollama and Blitzbrowser',
+					slug: '/tutorials/crawl-with-crawl4ai-ollama-and-blitzbrowser'
+				},
+			]
+		},
 	];
 </script>
 

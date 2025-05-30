@@ -5,6 +5,10 @@
 	import pythonPlaywright from '$lib/data/languages/python-playwright.py.html?raw';
 </script>
 
+<svelte:head>
+	<title>Connect Playwright To BlitzBrowser | BlitzBrowser Docs</title>
+</svelte:head>
+
 <h1>Connect Playwright To BlitzBrowser</h1>
 <p>
 	To connect Playwright to BlitzBrowser, you have to change the method <code> launch() </code>
