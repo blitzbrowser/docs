@@ -254,9 +254,14 @@
 					support@blitzbrowser.com
 				</a>
 			</div>
-			<a href="https://www.reddit.com/r/BlitzBrowser/" target="_blank">
-				<img class="h-6" src="/reddit.svg" alt="Reddit logo" />
-			</a>
+			<div class="flex flex-row gap-2">
+				<a href="https://www.reddit.com/r/BlitzBrowser/" target="_blank">
+					<img class="h-6" src="/reddit.svg" alt="Reddit logo" />
+				</a>
+				<a href="https://github.com/blitzbrowser" target="_blank">
+					<img class="h-6" src="/github-logo.svg" alt="GitHub logo" />
+				</a>
+			</div>
 		</div>
 	</div>
 </div>
