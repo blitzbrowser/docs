@@ -36,8 +36,12 @@
 					label: 'Crawl with Crawl4AI, Ollama and Blitzbrowser',
 					slug: '/tutorials/crawl-with-crawl4ai-ollama-and-blitzbrowser'
 				},
+				{
+					label: 'Crawl with Browser Use and Blitzbrowser',
+					slug: '/tutorials/crawl-with-browser-use-and-blitzbrowser'
+				}
 			]
-		},
+		}
 	];
 </script>
 

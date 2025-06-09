@@ -8,7 +8,7 @@
 
 <h1>Crawl with Crawl4AI, Ollama and Blitzbrowser</h1>
 <div class="flex flex-row items-center justify-center gap-6 rounded border p-4 text-4xl">
-	<span>🚀🤖 Crawl4AI</span>
+	<span>Crawl4AI</span>
 	<span>+</span>
 	<img class="h-18 border-0" src="/ollama-logo.webp" alt="Ollama logo" />
 </div>
@@ -56,7 +56,7 @@
 
 <h2>Run your web scraper</h2>
 <p>
-	Now that your environment is ready, we will usse our website <a
+	Now that your environment is ready, we will use our website <a
 		href="https://blitzbrowser.com/"
 		target="_blank"
 	>
@@ -68,7 +68,7 @@
 </p>
 <p>
 	The only configuration you need is an access key to connect to BlitzBrowser headless browsers. You
-	can find <a href="/" target="_blank">how to get an access</a> for free. Once you have an access
+	can find <a href="/" target="_blank">how to get an access key</a> for free. Once you have an access
 	key, you have to set the environment variable <code>BLITZBROWSER_ACCESS_KEY</code> to your key.
 </p>
 <h3>Scrape pricing plans of BlitzBrowser example</h3>

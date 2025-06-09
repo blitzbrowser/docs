@@ -1,0 +1,22 @@
+<code class="language-python"><span class="token keyword">from</span> langchain_openai <span class="token keyword">import</span> ChatOpenAI
+<span class="token keyword">from</span> browser_use <span class="token keyword">import</span> BrowserSession<span class="token punctuation">,</span> Agent
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> asyncio
+
+<span class="token comment"># Browser config to use BlitzBrowser headless browsers</span>
+browser_session <span class="token operator">=</span> BrowserSession<span class="token punctuation">(</span>cdp_url<span class="token operator">=</span><span class="token string-interpolation"><span class="token string">f"wss://cdp.blitzbrowser.com?accessKey=</span><span class="token interpolation"><span class="token punctuation">{</span>os<span class="token punctuation">.</span>environ<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'BLITZBROWSER_ACCESS_KEY'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    agent <span class="token operator">=</span> Agent<span class="token punctuation">(</span>
+        task<span class="token operator">=</span><span class="token string">"Go to BlitzBrowser.com, find their pricing section and extract all of the plans in a JSON list. Once the JSON list extracted, you can stop your task."</span><span class="token punctuation">,</span>
+        <span class="token comment"># LLM config to connect to OpenAI</span>
+        llm<span class="token operator">=</span>ChatOpenAI<span class="token punctuation">(</span>
+            model<span class="token operator">=</span><span class="token string">"gpt-4o"</span><span class="token punctuation">,</span>
+            api_key<span class="token operator">=</span>os<span class="token punctuation">.</span>environ<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'OPENAI_SECRET_KEY'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        browser_session<span class="token operator">=</span>browser_session
+    <span class="token punctuation">)</span>
+    result <span class="token operator">=</span> <span class="token keyword">await</span> agent<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>extracted_content<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code>
