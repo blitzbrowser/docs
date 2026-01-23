@@ -18,11 +18,11 @@ Managing browsers can be complicated. Instead of maintaining your browsers, focu
 
 ### Self Hosted
 
-BlitzBrowser is open source and under the Apache 2.0 license. You can run it yourself with Docker. Learn how to use the self hosted version on [Github](https://github.com/blitzbrowser/blitzbrowser).
+BlitzBrowser is open source on [Github](https://github.com/blitzbrowser/blitzbrowser) and under the Apache 2.0 license. You can run it yourself with Docker. Learn [how to use the self hosted version](/self-hosted/getting-started).
 
 ### Cloud
 
-If you don't want to manage the infrastructure, the versions and everything related. We offer a cloud version at [BlitzBrowser.com](https://blitzbrowser.com). Learn [how to use the cloud version here](/docs/cloud/getting-started).
+If you don't want to manage the infrastructure, the versions and everything related. We offer a cloud version at [BlitzBrowser.com](https://blitzbrowser.com). Learn [how to use the cloud version here](/cloud/getting-started).
 
 ---
 

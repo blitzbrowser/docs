@@ -18,7 +18,7 @@ This stack is perfect when you want to automate repetitive work and not manage m
 
 The following code example contains everything to run [Browser Use](https://browser-use.com/) and BlitzBrowser out-of-the-box. This example will go on [BlitzBrowser.com](https://blitzbrowser.com/) and find the pricing plans available. It will return the results in a JSON array.
 
-Here you will find how to get an [access key for free](/docs/cloud/getting-started). Once you have an access key, you have to set the environment variable `ACCESS_KEY` to your key.
+Here you will find how to get an [access key for free](/cloud/getting-started). Once you have an access key, you have to set the environment variable `ACCESS_KEY` to your key.
 
 In this example, we are using the GPT-4o model of OpenAI. You need to [create an OpenAI account](https://openai.com/index/hello-gpt-4o/) to run the code. Once you have an OpenAI API key, you have to set the environment variable `OPENAI_SECRET_KEY`. If you want to use another LLM, you can follow their [documentation here](https://docs.browser-use.com/customize/supported-models).
 

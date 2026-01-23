@@ -12,5 +12,5 @@ Next, you'll need to [create an access key](https://dashboard.blitzbrowser.com/a
 
 Now that you have an account and an access key, you are ready to connect your project to our browsers. BlitzBrowser is designed for straightforward integration with existing projects using Puppeteer, Playwright and any Chrome DevTools Protocol frameworks.
 
-- [Connect Playwright To BlitzBrowser](/docs/cloud/connect-puppeteer-to-blitzbrowser)
-- [Connect Playwright To BlitzBrowser](/docs/cloud/connect-playwright-to-blitzbrowser)
+- [Connect Playwright To BlitzBrowser](/cloud/guides/connect-puppeteer-to-blitzbrowser)
+- [Connect Playwright To BlitzBrowser](/cloud/guides/connect-playwright-to-blitzbrowser)

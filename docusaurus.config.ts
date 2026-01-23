@@ -5,7 +5,7 @@ import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
   title: 'BlitzBrowser',
-  tagline: 'BlitzBrowser helps you to manage and deploy headful browsers in the cloud and self hosted.',
+  tagline: 'BlitzBrowser helps you to manage, deploy and run headful browsers in the cloud and self hosted.',
   favicon: 'img/favicon.ico',
 
   future: {
@@ -35,17 +35,6 @@ const config: Config = {
           docItemComponent: "@theme/ApiItem",
           editUrl: 'https://github.com/blitzbrowser/docs/tree/main',
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   feedOptions: {
-        //     type: ['rss', 'atom'],
-        //     xslt: true,
-        //   },
-        //   editUrl: 'https://github.com/blitzbrowser/docs/tree/main',
-        //   onInlineTags: 'warn',
-        //   onInlineAuthors: 'warn',
-        //   onUntruncatedBlogPosts: 'warn',
-        // },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -72,9 +61,6 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        // {
-        //   to: '/blog', label: 'Blog', position: 'left'
-        // },
         {
           href: 'https://github.com/blitzbrowser/blitzbrowser',
           position: 'right',
@@ -187,9 +173,16 @@ const config: Config = {
           } satisfies OpenApiPlugin.Options,
         }
       },
-    ]
+    ],
   ],
   themes: ["docusaurus-theme-openapi-docs"],
+  scripts: [
+    {
+      src: 'https://umami.blitzbrowser.com/script.js',
+      defer: true,
+      'data-website-id': '2f1ec37a-7703-4996-9fe3-e6435bb155f5'
+    }
+  ]
 };
 
 export default config;

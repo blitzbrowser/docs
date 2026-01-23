@@ -10,7 +10,6 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Cloud',
-      collapsed: false,
       items: [
         {
           type: "doc",
@@ -20,16 +19,15 @@ const sidebars: SidebarsConfig = {
         {
           type: "category",
           label: 'Guides',
-          collapsed: false,
           items: [
             {
               type: "doc",
-              id: "cloud/connect-puppeteer-to-blitzbrowser",
+              id: "cloud/guides/connect-puppeteer-to-blitzbrowser",
               label: "Connect Puppeteer",
             },
             {
               type: "doc",
-              id: "cloud/connect-playwright-to-blitzbrowser",
+              id: "cloud/guides/connect-playwright-to-blitzbrowser",
               label: "Connect Playwright",
             },
           ]
@@ -54,6 +52,27 @@ const sidebars: SidebarsConfig = {
           type: "doc",
           id: "cloud/proxy",
           label: "Proxy",
+        },
+      ]
+    },
+    {
+      type: "category",
+      label: 'Self Hosted',
+      items: [
+        {
+          type: "doc",
+          id: "self-hosted/getting-started",
+          label: "Getting Started",
+        },
+        {
+          type: "doc",
+          id: "self-hosted/user-data-storage",
+          label: "User Data Storage",
+        },
+        {
+          type: "doc",
+          id: "self-hosted/chrome-devtools-protocol",
+          label: "Chrome DevTools Protocol (CDP)",
         },
       ]
     },

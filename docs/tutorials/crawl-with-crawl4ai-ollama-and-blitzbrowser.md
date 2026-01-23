@@ -24,7 +24,7 @@ In this tutorial, we will use the Gemma 3 model. To run the model locally, you n
 
 Now that your environment is ready, we will use our website [https://blitzbrowser.com/](https://blitzbrowser.com/) to find the pricing plans. The following code example contains everything to run Crawl4AI, Ollama and BlitzBrowser out-of-the-box.
 
-The only configuration you need is an access key to connect to BlitzBrowser browsers. You can find how to get an [access key for free](/docs/cloud/getting-started). Once you have an access key, you have to set the environment variable `ACCESS_KEY` to your key.
+The only configuration you need is an access key to connect to BlitzBrowser browsers. You can find how to get an [access key for free](/cloud/getting-started). Once you have an access key, you have to set the environment variable `ACCESS_KEY` to your key.
 
 ### Scrape pricing plans of BlitzBrowser
 

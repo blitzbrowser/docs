@@ -81,4 +81,4 @@ public class PlaywrightJavaExample {
 
 ## CDP Properties
 
-You can find all the properties available to configure your Chrome DevTools Protocol URL when connecting to our browsers [here](/docs/cloud/chrome-devtools-protocol).
+You can find all the properties available to configure your Chrome DevTools Protocol URL when connecting to our browsers [here](/cloud/chrome-devtools-protocol).
