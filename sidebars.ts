@@ -4,8 +4,8 @@ const sidebars: SidebarsConfig = {
   docSidebar: [
     {
       type: "doc",
-      id: "intro",
-      label: "Welcome",
+      id: "index",
+      label: "Introduction",
     },
     {
       type: 'category',
@@ -16,6 +16,23 @@ const sidebars: SidebarsConfig = {
           type: "doc",
           id: "cloud/getting-started",
           label: "Getting Started",
+        },
+        {
+          type: "category",
+          label: 'Guides',
+          collapsed: false,
+          items: [
+            {
+              type: "doc",
+              id: "cloud/connect-puppeteer-to-blitzbrowser",
+              label: "Connect Puppeteer",
+            },
+            {
+              type: "doc",
+              id: "cloud/connect-playwright-to-blitzbrowser",
+              label: "Connect Playwright",
+            },
+          ]
         },
         {
           type: "doc",
@@ -31,8 +48,7 @@ const sidebars: SidebarsConfig = {
             description: "Explore our API endpoints",
             slug: "/cloud/api",
           },
-          items: require("./docs/cloud/api/sidebar.ts"),
-          collapsed: false,
+          items: require("./docs/cloud/api/sidebar.ts")
         },
         {
           type: "doc",

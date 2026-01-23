@@ -14,12 +14,12 @@ const config: Config = {
 
   url: 'https://docs.blitzbrowser.com',
   baseUrl: '/',
-  
+
   organizationName: 'blitzbrowser',
   projectName: 'blitzbrowser',
 
   onBrokenLinks: 'throw',
-  
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -30,21 +30,22 @@ const config: Config = {
       'classic',
       {
         docs: {
+          routeBasePath: '/',
           sidebarPath: "./sidebars.ts",
           docItemComponent: "@theme/ApiItem",
           editUrl: 'https://github.com/blitzbrowser/docs/tree/main',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          editUrl: 'https://github.com/blitzbrowser/docs/tree/main',
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        // blog: {
+        //   showReadingTime: true,
+        //   feedOptions: {
+        //     type: ['rss', 'atom'],
+        //     xslt: true,
+        //   },
+        //   editUrl: 'https://github.com/blitzbrowser/docs/tree/main',
+        //   onInlineTags: 'warn',
+        //   onInlineAuthors: 'warn',
+        //   onUntruncatedBlogPosts: 'warn',
+        // },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -71,9 +72,9 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        {
-          to: '/blog', label: 'Blog', position: 'left'
-        },
+        // {
+        //   to: '/blog', label: 'Blog', position: 'left'
+        // },
         {
           href: 'https://github.com/blitzbrowser/blitzbrowser',
           position: 'right',
