@@ -1,35 +1,25 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
   title: 'BlitzBrowser',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'BlitzBrowser helps you to manage and deploy headful browsers in the cloud and self hosted.',
   favicon: 'img/favicon.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  url: 'https://docs.blitzbrowser.com',
   baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'blitzbrowser', // Usually your GitHub org/user name.
-  projectName: 'blitzbrowser', // Usually your repo name.
+  
+  organizationName: 'blitzbrowser',
+  projectName: 'blitzbrowser',
 
   onBrokenLinks: 'throw',
-
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -40,11 +30,9 @@ const config: Config = {
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          sidebarPath: "./sidebars.ts",
+          docItemComponent: "@theme/ApiItem",
+          editUrl: 'https://github.com/blitzbrowser/docs/tree/main',
         },
         blog: {
           showReadingTime: true,
@@ -52,11 +40,7 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
+          editUrl: 'https://github.com/blitzbrowser/docs/tree/main',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -70,29 +54,43 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/social.webp',
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
+      title: 'BlitzBrowser',
       logo: {
         alt: 'BlitzBrowser Logo',
-        src: 'img/logo-white.png',
+        src: 'img/logo.svg',
       },
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'docSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
         },
         {
           to: '/blog', label: 'Blog', position: 'left'
         },
         {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
+          href: 'https://github.com/blitzbrowser/blitzbrowser',
           position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'BlitzBrowser GitHub repository',
+        },
+        {
+          href: 'https://discord.gg/qZ3tCZJ2Ze',
+          position: 'right',
+          className: 'header-discord-link',
+          'aria-label': 'BlitzBrowser Discord server',
+        },
+        {
+          href: 'https://www.reddit.com/r/BlitzBrowser/',
+          position: 'right',
+          className: 'header-reddit-link',
+          'aria-label': 'BlitzBrowser Reddit',
         },
       ],
     },
@@ -100,41 +98,66 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Cloud Product',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Use Cases',
+              to: 'https://blitzbrowser.com/#use-cases',
+            },
+            {
+              label: 'How To Use',
+              to: 'https://blitzbrowser.com/#how-to-use',
+            },
+            {
+              label: 'Pricing',
+              to: 'https://blitzbrowser.com/#pricing',
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'Resources',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'Developer Docs',
+              to: 'https://docs.blitzbrowser.com',
             },
+            {
+              label: 'Github',
+              to: 'https://github.com/blitzbrowser/blitzbrowser',
+            },
+            {
+              label: 'Status',
+              to: 'https://status.blitzbrowser.com',
+            },
+          ],
+        },
+        {
+          title: 'Legal',
+          items: [
+            {
+              label: 'Terms of Service',
+              to: 'https://blitzbrowser.com/terms-of-service',
+            },
+            {
+              label: 'Privacy Policy',
+              to: 'https://blitzbrowser.com/privacy-policy',
+            },
+          ],
+        },
+        {
+          title: 'Contact Us',
+          items: [
             {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              to: 'https://discord.gg/qZ3tCZJ2Ze',
             },
             {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
+              label: 'Reddit',
+              to: 'https://www.reddit.com/r/BlitzBrowser/',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: 'support@blitzbrowser.com',
+              to: 'mailto:support@blitzbrowser.com',
             },
           ],
         },
@@ -146,6 +169,26 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+
+  plugins: [
+    [
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: "api",
+        docsPluginId: "classic",
+        config: {
+          cloud: {
+            specPath: "openapi/cloud.yaml",
+            outputDir: "docs/cloud/api",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          } satisfies OpenApiPlugin.Options,
+        }
+      },
+    ]
+  ],
+  themes: ["docusaurus-theme-openapi-docs"],
 };
 
 export default config;

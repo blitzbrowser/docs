@@ -1,0 +1,87 @@
+openapi: 3.1.0
+info:
+  title: BlitzBrowser Cloud API
+  description: REST API for BlitzBrowser Cloud API.
+  version: 1.0.0
+
+servers:
+  - url: https://api.blitzbrowser.com
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: >
+        The access key is generated on the BlitzBrowser dashboard. 
+        You can create and manage your keys at http://dashboard.blitzbrowser.com/access-keys
+
+security:
+  - ApiKeyAuth: []
+
+tags:
+  - name: User Data
+    description: Endpoints related to the management of the user data.
+
+paths:
+  /user-data/{user_data_id}:
+    parameters:
+      - name: user_data_id
+        in: path
+        required: true
+        description: The unique identifier for the user data.
+        schema:
+          type: string
+          pattern: '^[a-zA-Z0-9-_]{1,64}$'
+    get:
+      tags:
+        - User Data
+      summary: Download user data
+      description: Download the latest version of the user data related to the ID.
+      responses:
+        '200':
+          description: Successfully retrieved user data.
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: User data does not exist for the provided ID.
+    post:
+      tags:
+        - User Data
+      summary: Upload user data
+      description: >
+        Upload user data related to the ID. If the data already exists, it will be 
+        overridden. The file must be a gzip tar (.tar.gz).
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The .tar.gz user data file.
+            encoding:
+              file:
+                contentType: application/octet-stream
+      responses:
+        '200':
+          description: User data uploaded successfully.
+        '400':
+          description: Invalid request format or ID.
+    delete:
+      tags:
+        - User Data
+      summary: Delete user data
+      description: Delete the user data related to the ID.
+      responses:
+        '200':
+          description: User data deleted successfully.
+        '404':
+          description: No user data found to delete.
