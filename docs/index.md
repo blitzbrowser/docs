@@ -1,29 +1,30 @@
-# Introduction
+# BlitzBrowser
 
-BlitzBrowser will help you to manage, deploy and run browsers in no time.
+Managing browsers can be a recipe for memory leaks, zombie processes and devops issues. BlitzBrowser handles all the hard work of deploying and scaling the browsers, so you can focus on your code.
 
-Managing browsers can be complicated. Instead of maintaining your browsers, focus on building your features.
+## Features
 
-## ✨ Features
+- **Parallelism** - Spin up and run multiple browsers concurrently.
+- **Chrome DevTools Protocol** - No proprietary SDK. Connect directly from Puppeteer, Playwright or any CDP supported framework.
+- **Headful** - Run the browsers with a GUI to bypass bot detection and to render exactly as a user would see.
+- **Persistent Sessions** - Persist your browser user data with S3.
+- **Proxy Support** - Connect your browsers to any HTTP proxies.
+- **Queueing** - CDP connections are automatically queued while the browser are starting.
+- **No DevOps** - Run your browsers without worrying about the infrastructure, zombie process or a custom script. The container manages everything for you.
 
-- **Parallelism** - Run multiple browsers concurrently.
-- **Chrome DevTools Protocol** - Connect directly from Puppeteer, Playwright and any CDP supported frameworks. No custom library needed.
-- **Headful** - Run your browsers with GUI. No headless issues and broken features.
-- **User Data Storage** - Save and reuse your browsing sessions easily with S3.
-- **Proxy** - Connect your browsers to any HTTP proxy.
-- **Queueing** - The CDP connections are queued while the browsers are starting.
-- **No DevOps** - Run your browsers without worrying about the infrastructure, zombie process or a script. The container manages everything for you.
+## Get Started
 
-## 📋 How To Use
+### Self Hosted (Open Source)
 
-### Self Hosted
+BlitzBrowser is open source on [Github](https://github.com/blitzbrowser/blitzbrowser) and under the Apache 2.0 license. You can run it in seconds with Docker.
 
-BlitzBrowser is open source on [Github](https://github.com/blitzbrowser/blitzbrowser) and under the Apache 2.0 license. You can run it yourself with Docker. Learn [how to use the self hosted version](/self-hosted/getting-started).
+- [Self Hosted Documentation](/self-hosted/getting-started)
 
 ### Cloud
 
-If you don't want to manage the infrastructure, the versions and everything related. We offer a cloud version at [BlitzBrowser.com](https://blitzbrowser.com). Learn [how to use the cloud version here](/cloud/getting-started).
+If you don't want to manage the infrastructure, the versions and the updates. We offer a cloud version that handles everything for you.
 
----
+- [Sign up at BlitzBrowser.com](https://blitzbrowser.com)
+- [Cloud Documentation](/cloud/getting-started)
 
-**Important**: There is no difference between the open source and cloud version. Both offer the same features.
+**Note**: The Open Source and Cloud versions are identical. They offer the same features.
