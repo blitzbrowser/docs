@@ -1,8 +1,30 @@
 # Chrome DevTools Protocol (CDP)
 
-All the frameworks that use the Chrome DevTools Protocol (CDP) can be configured with the following properties. You have to configure the properties in the websocket URL used to connect to our browsers.
+The Chrome DevTools Protocol (CDP) over a websocket connection is used to connect to the browsers. To configure the browsers, you have to pass the browser properties as query parameters on the websocket URL.
 
-## Properties
+## How to connect with CDP
+
+### Connect Playwright over CDP
+
+```typescript
+import { chromium } from 'playwright';
+
+const browser = await chromium.connectOverCDP(`ws://localhost:9999`);
+```
+
+### Connect Puppeteer over CDP
+
+```typescript
+import puppeteer from 'puppeteer';
+
+const browser = await puppeteer.connect({
+    browserWSEndpoint: `ws://localhost:9999`
+});
+```
+
+## Browser Properties
+
+The browser properties are used to configure the browser before starting.
 
 | Property                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Required |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
@@ -11,9 +33,7 @@ All the frameworks that use the Chrome DevTools Protocol (CDP) can be configured
 | `userDataId=${USER_DATA_ID}`     | If you want to persist and reuse the user data related to your browser session. You have to set the a unique ID to the user data. The ID has to match `/^[a-zA-Z0-9-_]{1,64}$/`. The user data will be downloaded before starting the browser and will be saved at the end of the browser session. The user data saved will override the previous version of the user data. If the user data doesn't exist, it will be created from the user data of the browser session. | Optional |
 | `userDataReadOnly=${boolean}` | If you want to use the user data without updating it at the end of the browser session. By default it is `false`, you have to set the read only property to `true`. It will download the user data and start the browser with it, but won't saved its new state at the end of the browser session.                                                                                                                                                                               | Optional |
 
-## Examples
-
-Assuming you are running BlitzBrowser locally. The CDP host is `localhost:9999`.
+## CDP URLs Examples
 
 ```
 ws://cdp.blitzbrowser.com
