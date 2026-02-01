@@ -7,6 +7,7 @@ Managing browsers can be a recipe for memory leaks, zombie processes and devops 
 - **Parallelism** - Spin up and run multiple browsers concurrently.
 - **Chrome DevTools Protocol** - No proprietary SDK. Connect directly from Puppeteer, Playwright or any CDP supported framework.
 - **Headful** - Run the browsers with a GUI to bypass bot detection and to render exactly as a user would see.
+- **Live View** - Watch and interact directly with any browsers currently running.
 - **Persistent Sessions** - Persist your browser user data with S3.
 - **Proxy Support** - Connect your browsers to any HTTP proxies.
 - **Queueing** - CDP connections are automatically queued while the browser are starting.
@@ -26,5 +27,3 @@ If you don't want to manage the infrastructure, the versions and the updates. We
 
 - [Sign up at BlitzBrowser.com](https://blitzbrowser.com)
 - [Cloud Documentation](/cloud/getting-started)
-
-**Note**: The Open Source and Cloud versions are identical. They offer the same features.

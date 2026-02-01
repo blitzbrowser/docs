@@ -27,6 +27,11 @@ services:
       S3_USER_DATA_BUCKET: user-data
     shm_size: "2gb"
     restart: always
+  dashboard:
+    image: ghcr.io/blitzbrowser/dashboard:latest
+    ports:
+      - "3000:3000"
+    restart: always
   s3:
     image: rustfs/rustfs
     ports:

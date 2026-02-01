@@ -66,6 +66,16 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "self-hosted/dashboard",
+          label: "Dashboard",
+        },
+        {
+          type: "doc",
+          id: "self-hosted/live-view",
+          label: "Live View",
+        },
+        {
+          type: "doc",
           id: "self-hosted/user-data-storage",
           label: "User Data Storage",
         },

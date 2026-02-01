@@ -4,9 +4,10 @@ Running BlitzBrowser yourself is easy. You just need to pull the latest docker i
 
 ## Quick Start
 
-IF you want to run browsers and don't need user data storage. We recommand running the following docker container. You will be able to run as many browsers you want and connect them to any HTTP proxies.
+If you want to run browsers and don't need user data storage. We recommand running the following docker container. You will be able to run as many browsers you want and connect them to any HTTP proxies.
 
-Check [here](/self-hosted/user-data-storage) if you need user data storage.
+- [Looking to persist the user data?](/self-hosted/user-data-storage)
+- [Looking for the live view feature?](/self-hosted/live-view)
 
 ### Docker
 
