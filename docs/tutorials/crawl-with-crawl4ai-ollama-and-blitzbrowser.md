@@ -1,90 +1,148 @@
 # Crawl with Crawl4AI, Ollama and Blitzbrowser
 
-In this tutorial, we will see how we can use [Crawl4AI](https://github.com/unclecode/crawl4ai), [Ollama](https://ollama.com/) and BlitzBrowser to crawl and extract data from unstructed websites.
+<video width="100%" controls src="/videos/blitzbrowser-crawl4ai.mp4"></video>
 
-This stack is perfect when you need to extract unstructured information from websites. [Crawl4AI](https://github.com/unclecode/crawl4ai) will manage your crawler orchestration, [Ollama](https://ollama.com/) will provide the LLM of your choice to format the unstructured data and BlitzBrowser will operate your browsers.
+In this tutorial, we will see how we can use [Crawl4AI](https://github.com/unclecode/crawl4ai), [Ollama](https://ollama.com/) and BlitzBrowser to crawl and extract data from any websites.
 
-**Requirements for this tutorial**
+This stack will allow you to do web scraping from any websites while running everything locally. [Crawl4AI](https://github.com/unclecode/crawl4ai) will manage your crawler orchestration, [Ollama](https://ollama.com/) will provide the LLM of your choice to extract data and BlitzBrowser will run your browsers.
 
-- Basic python knowledge.
+## Requirements for this tutorial
+
+- Python installed.
+- [UV](https://github.com/astral-sh/uv) to create your virtual python environment.
+- [Ollama](https://ollama.com/) installed with `ollama/gemma3:4b`.
+- [BlitzBrowser](/self-hosted/dashboard) installed with the dashboard.
 
 ## Prepare your environment
 
-### Install Crawl4AI
+Create a new directory named `blitzbrowser-crawl4ai` where you will run the following commands.
 
-[Crawl4AI](https://github.com/unclecode/crawl4ai) has to be installed in your environment. You can find [how to install Crawl4AI](https://github.com/unclecode/crawl4ai?tab=readme-ov-file#-quick-start) on their GitHub.
+```sh
+uv init
+```
 
-### Install Ollama
+```sh
+uv add crawl4ai
+```
 
-If you have access to a remote Ollama instance, you can skip the local installation. Otherwise you have to [install it locally](https://ollama.com/download).
+```sh
+uv add pydantic
+```
 
-In this tutorial, we will use the Gemma 3 model. To run the model locally, you need to pull the image `ollama pull gemma3:latest` and then `ollama serve`.
-
-## Run your web scraper
-
-Now that your environment is ready, we will use our website [https://blitzbrowser.com/](https://blitzbrowser.com/) to find the pricing plans. The following code example contains everything to run Crawl4AI, Ollama and BlitzBrowser out-of-the-box.
-
-The only configuration you need is an access key to connect to BlitzBrowser browsers. You can find how to get an [access key for free](/cloud/getting-started). Once you have an access key, you have to set the environment variable `ACCESS_KEY` to your key.
-
-### Scrape pricing plans of BlitzBrowser
+Open the file `main.py` and replace its content by the python code below.
 
 ```python
-import os
 import asyncio
+import json
 
 from typing import List
 from crawl4ai import *
-from pydantic import BaseModel
+from crawl4ai.deep_crawling import BFSDeepCrawlStrategy
+from crawl4ai.deep_crawling.filters import FilterChain, URLPatternFilter
+from pydantic import BaseModel, Field
 
-# Classes used as JSON schema to format the output of Gemma 3
-class Pricing(BaseModel):
-    name: str
-    href: str
 
-class PricingPlans(BaseModel):
-    pricing_plans: List[Pricing]
+class Page(BaseModel):
+    url: str = Field(description="URL of the page.")
+    title: str = Field(description="Title of the page.")
+    summary: str = Field(description="Summary of the page content.")
+
+
+class PageList(BaseModel):
+    pages: List[Page]
+
 
 # Browser config to use BlitzBrowser browsers with Chrome DevTools Protocol
 browser_config = BrowserConfig(
     headless=False,
     verbose=True,
     browser_mode="cdp",
-    cdp_url=f"wss://cdp.blitzbrowser.com?accessKey={os.environ.get('ACCESS_KEY')}",
+    cdp_url=f"ws://localhost:9999?liveView=true",
+)
+
+# Crawl strategy.
+deep_crawl_strategy = BFSDeepCrawlStrategy(
+    max_depth=3,             # How many "clicks" away from the home page to go
+    include_external=False,  # Stay on the same domain
+    max_pages=10,            # Safety cap to prevent infinite crawling
+    filter_chain=FilterChain([URLPatternFilter(patterns=["*docs.blitzbrowser.com*"])])
 )
 
 # LLM strategy to format the data extracted
 extraction_strategy = LLMExtractionStrategy(
-    llm_config=LLMConfig(provider="ollama/gemma3:4b", base_url="http://localhost:11434"),
+    llm_config=LLMConfig(provider="ollama/gemma3:4b",
+                         base_url="http://localhost:11434"),
+    schema=PageList.model_json_schema(),
     extraction_type="schema",
-    schema=PricingPlans.model_json_schema(),
-    instruction="Extract all the pricing plans JSON array containing their 'name' and 'price'.",
-    chunk_token_threshold=1200,
-    overlap_rate=0.1,
+    instruction="Find all the pages and extract their URL, title and create a summary of the page content.",
+    chunk_token_threshold=500,
     apply_chunking=True,
-    input_format="markdown",
-    verbose=True
+    input_format="markdown"
 )
 
 # Config for crawler
 crawl_config = CrawlerRunConfig(
     extraction_strategy=extraction_strategy,
+    deep_crawl_strategy=deep_crawl_strategy,
     cache_mode=CacheMode.BYPASS
 )
 
+
 async def main():
     async with AsyncWebCrawler(config=browser_config) as crawler:
-        result = await crawler.arun(url="https://blitzbrowser.com/", config=crawl_config)
+        results = await crawler.arun(url="https://docs.blitzbrowser.com", config=crawl_config)
+        pages: List[Page] = []
 
-        if result.success:
-            print("Extracted content:", result.extracted_content)
-        else:
-            print("Error:", result.error_message)
+        for result in results:
+            if result.success:                
+                pages.extend(json.loads(result.extracted_content))
+
+        print(json.dumps(pages, indent=4))
 
 
 if __name__ == "__main__":
     asyncio.run(main())
 ```
 
+## Run the local web scraper
+
+Now that your environment is ready, you are ready to crawl. The python code you copied will start Crawl4AI with Ollama and BlitzBrowser. Crawl4AI will crawl the documentation [https://docs.blitzbrowser.com/](https://docs.blitzbrowser.com/) and create a summary of each page it will find. The summary will be done with Ollama and Gemma. To navigate on the website, Crawl4AI will connect through the Chrome DevTools Protocol to BlitzBrowser.
+
+Start the crawler with the following command.
+
+```sh
+uv run main.py
+```
+
+The expected output should be a JSON array of all the pages found.
+
+```json
+[
+    // ...
+    {
+        "url": "https://docs.blitzbrowser.com/cloud/api/upload-user-data",
+        "title": "Upload user data",
+        "summary": "This page describes the API endpoint for uploading user data. It provides information about the POST request method and the expected response codes and schema.",
+        "error": false
+    },
+    {
+        "url": "https://docs.blitzbrowser.com/cloud/api/delete-user-data",
+        "title": "Delete user data",
+        "summary": "This page describes the API endpoint for deleting user data. It provides information about the DELETE request method and the expected response codes and schema.",
+        "error": false
+    },
+    {
+        "url": "https://docs.blitzbrowser.com/cloud/proxy",
+        "title": "Proxy",
+        "summary": "This page describes the API endpoint for proxy functionality.",
+        "error": false
+    },
+    // ...
+]
+```
+
 ## Conclusion
 
-At this point, you should now be ready to web scrape any websites you want with [Crawl4AI](https://github.com/unclecode/crawl4ai), [Ollama](https://ollama.com/) and BlitzBrowser.
+You are now ready to run and scale your local web scraper to any websites.
+
+Happy web scraping! 🎉
