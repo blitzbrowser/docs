@@ -61,6 +61,7 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
+        { to: 'blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/blitzbrowser/blitzbrowser',
           position: 'right',
@@ -106,11 +107,15 @@ const config: Config = {
           items: [
             {
               label: 'Developer Docs',
-              to: 'https://docs.blitzbrowser.com',
+              to: '/',
             },
             {
               label: 'Github',
               to: 'https://github.com/blitzbrowser/blitzbrowser',
+            },
+            {
+              label: 'Blog',
+              to: '/blog',
             },
             {
               label: 'Status',
