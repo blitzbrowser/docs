@@ -6,9 +6,9 @@ The live view feature allows you to watch and interact with any browsers current
 
 ## How to use the Live View
 
-The live view feature requires the dashboard. If the dashboard isn't deployed, you can [learn how to deploy it](/self-hosted/dashboard#how-to-deploy-the-dashboard).
+The live view feature requires the dashboard. The [complete deployment guide](/self-hosted/getting-started#complete-deployment) contains a docker compose file with all the requirements to run all the features of BlitzBrowser. It will deploy the dashboard.
 
-The live view is enabled with the [live view browser property](/self-hosted/chrome-devtools-protocol#browser-properties). You have to enable the feature when connecting to a browser.
+The live view is enabled with the [live view browser property](/self-hosted/chrome-devtools-protocol#browser-properties). You have to enable the feature when connecting to a browser. By default the Live View is disabled.
 
 ### Connect your code
 
