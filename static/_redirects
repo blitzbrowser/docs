@@ -1,0 +1,5 @@
+/self-hosted/chrome-devtools-protocol /self-hosted/configurations/chrome-devtools-protocol 302
+
+/self-hosted/dashboard /self-hosted/features/dashboard 302
+/self-hosted/user-data-storage /self-hosted/features/user-data-storage 302
+/self-hosted/live-view /self-hosted/features/live-view 302

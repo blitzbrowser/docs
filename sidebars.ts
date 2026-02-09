@@ -65,24 +65,51 @@ const sidebars: SidebarsConfig = {
           label: "Getting Started",
         },
         {
-          type: "doc",
-          id: "self-hosted/dashboard",
-          label: "Dashboard",
+          type: "category",
+          label: 'Features',
+          items: [
+            {
+              type: "doc",
+              id: "self-hosted/features/dashboard",
+              label: "Dashboard",
+            },
+            {
+              type: "doc",
+              id: "self-hosted/features/live-view",
+              label: "Live View",
+            },
+            {
+              type: "doc",
+              id: "self-hosted/features/user-data-storage",
+              label: "User Data Storage",
+            },
+            {
+              type: "doc",
+              id: "self-hosted/features/authentication",
+              label: "Authentication",
+            },
+          ]
         },
         {
-          type: "doc",
-          id: "self-hosted/live-view",
-          label: "Live View",
-        },
-        {
-          type: "doc",
-          id: "self-hosted/user-data-storage",
-          label: "User Data Storage",
-        },
-        {
-          type: "doc",
-          id: "self-hosted/chrome-devtools-protocol",
-          label: "Chrome DevTools Protocol (CDP)",
+          type: "category",
+          label: 'Configurations',
+          items: [
+            {
+              type: "doc",
+              id: "self-hosted/configurations/blitzbrowser",
+              label: "BlitzBrowser",
+            },
+            {
+              type: "doc",
+              id: "self-hosted/configurations/dashboard",
+              label: "Dashboard",
+            },
+            {
+              type: "doc",
+              id: "self-hosted/configurations/chrome-devtools-protocol",
+              label: "Chrome DevTools Protocol (CDP)",
+            },
+          ]
         },
       ]
     },

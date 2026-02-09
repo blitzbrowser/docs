@@ -1,6 +1,6 @@
 # Chrome DevTools Protocol (CDP)
 
-The Chrome DevTools Protocol (CDP) over a websocket connection is used to connect to the browsers. To configure the browsers, you have to pass the browser properties as query parameters on the websocket URL.
+To configure the browsers, you have to pass the browser properties as query parameters in the websocket URL. The Chrome DevTools Protocol (CDP) over a websocket connection is used to connect to the browsers.
 
 ## How to connect with CDP
 
