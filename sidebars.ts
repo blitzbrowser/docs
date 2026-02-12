@@ -80,13 +80,13 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: "doc",
-              id: "self-hosted/features/user-data-storage",
-              label: "User Data Storage",
+              id: "self-hosted/features/security",
+              label: "Security",
             },
             {
               type: "doc",
-              id: "self-hosted/features/authentication",
-              label: "Authentication",
+              id: "self-hosted/features/user-data-storage",
+              label: "User Data Storage",
             },
           ]
         },
@@ -101,13 +101,13 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: "doc",
-              id: "self-hosted/configurations/dashboard",
-              label: "Dashboard",
+              id: "self-hosted/configurations/chrome-devtools-protocol",
+              label: "Chrome DevTools Protocol (CDP)",
             },
             {
               type: "doc",
-              id: "self-hosted/configurations/chrome-devtools-protocol",
-              label: "Chrome DevTools Protocol (CDP)",
+              id: "self-hosted/configurations/dashboard",
+              label: "Dashboard",
             },
           ]
         },
