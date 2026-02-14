@@ -45,3 +45,79 @@ services:
     shm_size: "2gb"
     restart: always
 ```
+
+## Environment variables
+
+| Property | Description | Required |
+|----------|-------------|----------|
+| `API_KEY` | If defined, the API endpoints will be restricted with an api key. By default the API and CDP endpoints don't need an API key. If configured, you will have to pass the header `x-api-key=${API_KEY}` in your HTTP requests or the query parameter `apiKey=${API_KEY}` when connecting to the CDP endpoint. | Optional |
+| `MAX_BROWSER_INSTANCES` | Limit the number of concurrent browsers running. By default, you can run up to `99` browsers concurrently. | Optional |
+| `S3_ENDPOINT`  | The S3 endpoint used to store user data. | Optional |
+| `S3_ACCESS_KEY_ID` | The access key ID used to connect to S3. | Optional |
+| `S3_SECRET_ACCESS_KEY` | The secret access key used to connect to S3. | Optional |
+| `S3_USER_DATA_BUCKET` | The S3 bucket used to store the user data. | Optional |
+| `PORT` | Change the HTTP port the server is listening on. By default the server will listen on port `9999`. | Optional |
+| `DISABLE_SHM` | Disable the browsers shared memory features. By default the shared memory features are enabled. You should only disable them if you can't configure the shared memory of your docker container. | Optional |
+
+## Examples
+
+### Deploy with api key required
+
+This docker compose config will require all the HTTP and CDP connections to provide the API key.
+
+```yaml
+services:
+  blitzbrowser:
+    image: ghcr.io/blitzbrowser/blitzbrowser:latest
+    ports:
+      - "9999:9999"
+    shm_size: "2gb"
+    restart: always
+    environment:
+      API_KEY: api_admin
+```
+
+### Deploy with S3 user data storage
+
+```yaml
+services:
+  blitzbrowser:
+    image: ghcr.io/blitzbrowser/blitzbrowser:latest
+    ports:
+      - "9999:9999"
+    environment:
+      S3_ENDPOINT: http://s3:9000
+      S3_ACCESS_KEY_ID: rustfsadmin
+      S3_SECRET_ACCESS_KEY: rustfsadmin
+      S3_USER_DATA_BUCKET: user-data
+    shm_size: "2gb"
+    restart: always
+  s3:
+    image: rustfs/rustfs
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      RUSTFS_VOLUMES: /data
+      RUSTFS_ADDRESS: :9000
+      RUSTFS_ACCESS_KEY: rustfsadmin
+      RUSTFS_SECRET_KEY: rustfsadmin
+      RUSTFS_CONSOLE_ENABLE: true
+    restart: always
+    volumes:
+      - s3_data:/data
+  # RustFS volume permissions fixer service
+  volume-permission-helper:
+    image: alpine
+    volumes:
+      - s3_data:/data
+    command: >
+      sh -c "
+        chown -R 10001:10001 /data &&
+        echo 'Volume Permissions fixed' &&
+        exit 0
+      "
+    restart: "no"
+volumes:
+  s3_data:
+```

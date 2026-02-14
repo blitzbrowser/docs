@@ -24,15 +24,15 @@ const browser = await puppeteer.connect({
 
 ## Browser Properties
 
-The browser properties are used to configure the browser before starting.
+The browser properties are used to configure the browser before starting. You have to pass the properties as query parameters in the CDP URL. 
 
 | Property | Description | Required |
 |----------|-------------|----------|
-| `timezone=${TIMEZONE}` | By default the browser will use the timezone related to the internet IP of the host. If you use a proxy, the timezone will be set to the proxy location. If you need to override the timezone, which is not recommended, you can do so by using one of the following [timezones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). | Optional |
-| `proxyUrl=${HTTP_PROXY_URL}`  | To use your own proxy, you have to pass your proxy URL to the browser. The HTTP proxy URL has to match the following pattern `http://${USERNAME}:${PASSWORD}@${HOSTNAME}:${PORT}`. The proxy URL has priority over the other proxy parameters. | Optional |
-| `userDataId=${USER_DATA_ID}` | If you want to persist and reuse the user data related to your browser session. You have to set a unique ID for the user data. The ID has to match `/^[a-zA-Z0-9-_]{1,64}$/`. The user data will be downloaded before starting the browser and will be saved at the end of the browser session. The saved user data will override the previous version of the user data. If the user data doesn't exist, it will be created from the user data of the browser session. | Optional |
-| `userDataReadOnly=${boolean}` | If you want to use the user data without updating it at the end of the browser session. By default it is `false`, you have to set the read only property to `true`. It will download the user data and start the browser with it, but won't save its new state at the end of the browser session. | Optional |
-| `liveView=${boolean}` | Enable the live view if you want to watch and interact with the browser in real time. You will have the ability to click, type and scroll directly in the browser. | Optional |
+| `timezone` | By default the browser will use the timezone related to the internet IP of the host. If you use a proxy, the timezone will be set to the proxy location. If you need to override the timezone, which is not recommended, you can do so by using one of the following [timezones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). | Optional |
+| `proxyUrl`  | To use your own proxy, you have to pass your proxy URL to the browser. The HTTP proxy URL has to match the following pattern `http://${USERNAME}:${PASSWORD}@${HOSTNAME}:${PORT}`. The proxy URL has priority over the other proxy parameters. | Optional |
+| `userDataId` | If you want to persist and reuse the user data related to your browser session. You have to set a unique ID for the user data. The ID has to match `/^[a-zA-Z0-9-_]{1,64}$/`. The user data will be downloaded before starting the browser and will be saved at the end of the browser session. The saved user data will override the previous version of the user data. If the user data doesn't exist, it will be created from the user data of the browser session. | Optional |
+| `userDataReadOnly` | If you want to use the user data without updating it at the end of the browser session. By default it is `false`, you have to set the read only property to `true`. It will download the user data and start the browser with it, but won't save its new state at the end of the browser session. | Optional |
+| `liveView` | Enable the live view if you want to watch and interact with the browser in real time. You will have the ability to click, type and scroll directly in the browser. The default value is `false`. | Optional |
 
 ## CDP URLs Examples
 
