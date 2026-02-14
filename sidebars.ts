@@ -8,54 +8,6 @@ const sidebars: SidebarsConfig = {
       label: "Introduction",
     },
     {
-      type: 'category',
-      label: 'Cloud',
-      items: [
-        {
-          type: "doc",
-          id: "cloud/getting-started",
-          label: "Getting Started",
-        },
-        {
-          type: "category",
-          label: 'Guides',
-          items: [
-            {
-              type: "doc",
-              id: "cloud/guides/connect-puppeteer-to-blitzbrowser",
-              label: "Connect Puppeteer",
-            },
-            {
-              type: "doc",
-              id: "cloud/guides/connect-playwright-to-blitzbrowser",
-              label: "Connect Playwright",
-            },
-          ]
-        },
-        {
-          type: "doc",
-          id: "cloud/chrome-devtools-protocol",
-          label: "Chrome DevTools Protocol (CDP)",
-        },
-        {
-          type: "category",
-          label: "REST API",
-          link: {
-            type: "generated-index",
-            title: "Cloud API",
-            description: "Explore our API endpoints",
-            slug: "/cloud/api",
-          },
-          items: require("./docs/cloud/api/sidebar.ts")
-        },
-        {
-          type: "doc",
-          id: "cloud/proxy",
-          label: "Proxy",
-        },
-      ]
-    },
-    {
       type: "category",
       label: 'Self Hosted',
       items: [
@@ -115,6 +67,54 @@ const sidebars: SidebarsConfig = {
               label: "Dashboard",
             },
           ]
+        },
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Cloud',
+      items: [
+        {
+          type: "doc",
+          id: "cloud/getting-started",
+          label: "Getting Started",
+        },
+        {
+          type: "category",
+          label: 'Guides',
+          items: [
+            {
+              type: "doc",
+              id: "cloud/guides/connect-puppeteer-to-blitzbrowser",
+              label: "Connect Puppeteer",
+            },
+            {
+              type: "doc",
+              id: "cloud/guides/connect-playwright-to-blitzbrowser",
+              label: "Connect Playwright",
+            },
+          ]
+        },
+        {
+          type: "doc",
+          id: "cloud/chrome-devtools-protocol",
+          label: "Chrome DevTools Protocol (CDP)",
+        },
+        {
+          type: "category",
+          label: "REST API",
+          link: {
+            type: "generated-index",
+            title: "Cloud API",
+            description: "Explore our API endpoints",
+            slug: "/cloud/api",
+          },
+          items: require("./docs/cloud/api/sidebar.ts")
+        },
+        {
+          type: "doc",
+          id: "cloud/proxy",
+          label: "Proxy",
         },
       ]
     },

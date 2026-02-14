@@ -65,7 +65,7 @@ While BlitzBrowser can be run in a single docker image. You will need more docke
 
 This is the docker compose to run BlitzBrowser, the dashboard and Rustfs (S3). You will be able to run browsers, persist the user data and to use the Live View feature with this deployment.
 
-```yaml
+```yml
 services:
   blitzbrowser:
     image: ghcr.io/blitzbrowser/blitzbrowser:latest
