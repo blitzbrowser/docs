@@ -1,16 +1,16 @@
 # User Data Storage
 
-If you need to run your browsers and persist the user data between sessions. You need to use a S3 service.
+If you need to run your browsers and persist user data between sessions, you must use an S3-compatible service.
 
-You can use any S3 compatible service like Cloudflare R2, Rustfs, AWS S3, Backblaze, etc...
+You can use any provider such as Cloudflare R2, RustFS, AWS S3, or Backblaze.
 
 ## Quick Start
 
-To run BlitzBrowser locally with user data storage. We created a docker-compose file with our docker image and with the Rustfs docker image.
+To run BlitzBrowser locally with user data storage, we have provided a Docker Compose file that includes BlitzBrowser, the dashboard and RustFS (S3) images.
 
-1. First, deploy the docker-compose file.
-2. When it is running, you need to create the bucket `user-data` in Rustfs [http://localhost:9001](http://localhost:9001).
-3. You are now ready to persist the user data of your browsers.
+1. Deploy the Docker Compose file.
+2. Once running, create the bucket `user-data` in Rustfs [http://localhost:9001](http://localhost:9001).
+3. You are now ready to persist the browser user data.
 
 ### Docker compose
 
