@@ -64,7 +64,7 @@ volumes:
 
 ### Connect Your Code
 
-To connect to a browser and to persist the user data. You need to use the `userDataId=${ID}` property in the CDP URL. Check the [Chrome DevTools Protocol properties](/self-hosted/chrome-devtools-protocol) to learn how to configure your browser.
+To connect to a browser and to persist the user data. You need to use the `userDataId=${ID}` property in the CDP URL. Check the [Chrome DevTools Protocol properties](/self-hosted/configurations/chrome-devtools-protocol) to learn how to configure your browser.
 
 <details open>
 <summary><b>Puppeteer</b></summary>
