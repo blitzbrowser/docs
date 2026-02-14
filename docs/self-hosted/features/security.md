@@ -1,9 +1,23 @@
-# Authentication
+# Security
 
-By default, BlitzBrowser and the dashboard are not restricted. They are accessible from anyone on the network. If you need to limit who has access, you need to enable the authentication on BlitzBrowser and on the dashboard.
+You can run BlitzBrowser and the dashboard securely over the internet or without authentication in a private network. Depending on your requirements, you can easily configure the security you need.
 
-## Control access to BlitzBrowser
+![BlitzBrowser dashboard](/img/auth.webp)
 
+## No authentication (Default)
 
+This mode is ideal for local development or private networks. Anyone with access to the network can view the dashboard and launch browsers.
 
-## Control access to the dashboard
+- **BlitzBrowser**: Accessible without an API key.
+- **Dashboard**: Open to the public. No login required.
+
+## Full Authentication (Recommended for Production)
+
+This is the most secure setup. It requires all users to be authenticated to access the dashboard and to connect to any browser instances.
+
+- **BlitzBrowser**: All CDP and HTTP connections must provide a valid `API_KEY`. You can pass the API key by:
+  - HTTP header: `x-api-key: ${API_KEY}`
+  - Query parameter: `apiKey=${API_KEY}`
+- **Dashboard**: Users must provide the `AUTH_KEY` to log in. The dashboard uses the `BLITZBROWSER_API_KEY` to connect to the API.
+
+For detailed setup instructions, please refer to the [dashboard configuration](/self-hosted/configurations/dashboard) and the [BlitzBrowser configuration](/self-hosted/configurations/blitzbrowser) pages.

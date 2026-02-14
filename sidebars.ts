@@ -75,6 +75,11 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: "doc",
+              id: "self-hosted/features/http-proxy",
+              label: "HTTP Proxy",
+            },
+            {
+              type: "doc",
               id: "self-hosted/features/live-view",
               label: "Live View",
             },

@@ -62,7 +62,7 @@ volumes:
   s3_data:
 ```
 
-### Connect your code
+### Connect Your Code
 
 To connect to a browser and to persist the user data. You need to use the `userDataId=${ID}` property in the CDP URL. Check the [Chrome DevTools Protocol properties](/self-hosted/chrome-devtools-protocol) to learn how to configure your browser.
 
@@ -87,7 +87,7 @@ await browser.close();
 </details>
 
 <details>
-<summary><b>Playwright + NodeJS</b></summary>
+<summary><b>Playwright</b></summary>
 
 ```typescript
 import { chromium } from 'playwright';

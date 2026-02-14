@@ -10,7 +10,7 @@ The Live View feature requires the dashboard. The [complete deployment guide](/s
 
 The live view is enabled with the [live view browser property](/self-hosted/chrome-devtools-protocol#browser-properties). You have to enable the feature when connecting to a browser. By default the Live View is disabled.
 
-### Connect your code
+### Connect Your Code
 
 <details open>
 <summary><b>Puppeteer</b></summary>
