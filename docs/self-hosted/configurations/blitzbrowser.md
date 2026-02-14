@@ -4,7 +4,7 @@ BlitzBrowser is the engine managing and running the browsers. It will:
 
 - Run multiple headful browsers in parallel.
 - Create the CDP endpoint to connect Puppeteer, Playwright or any CDP framework to a browser.
-- Persist the user data between browsing sessions.
+- Persist the user data between browsing sessions. Require an S3 storage.
 - Proxy all the browsers' requests to HTTP proxies.
 - Queue all CDP requests to avoid overloading the host.
 
