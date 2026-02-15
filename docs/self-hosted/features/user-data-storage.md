@@ -1,18 +1,42 @@
 # User Data Storage
 
-If you need to run your browsers and persist user data between sessions, you must use an S3-compatible service.
+Persisting your browser user data has never been easier. With BlitzBrowser you can persist your user data on the disk or with an S3 compatible service.
 
-You can use any provider such as Cloudflare R2, RustFS, AWS S3, or Backblaze.
+You can use any S3 provider such as Cloudflare R2, RustFS, AWS S3 or Backblaze to persist your user data.
 
 ## Quick Start
 
-To run BlitzBrowser locally with user data storage, we have provided a Docker Compose file that includes BlitzBrowser, the dashboard and RustFS (S3) images.
+### User Data Storage on local disk
+
+By default BlitzBrowser will persist the user data locally. You don't need to configure anything to enable the feature.
+
+To test user data storage locally, here is a Docker Compose file that will store the browser user data on your host in the `./user-data` folder.
+
+#### Docker compose
+
+```yaml
+services:
+  blitzbrowser:
+    image: ghcr.io/blitzbrowser/blitzbrowser:latest
+    ports:
+      - "9999:9999"
+    volumes:
+      - ./user-data:/blitzbrowser/user-data
+    shm_size: "2gb"
+    restart: always
+```
+
+### User Data Storage with S3
+
+To persist your browser user data in a S3 compatible service, you have to configure all the `S3_*` environment variables. You can find all the details in the [BlitzBrowser configuration](/self-hosted/configurations/blitzbrowser) doc.
+
+To test locally BlitzBrowser with an S3 service, here is a Docker Compose file that includes BlitzBrowser and RustFS (S3) images.
 
 1. Deploy the Docker Compose file.
 2. Once running, create the bucket `user-data` in Rustfs [http://localhost:9001](http://localhost:9001).
 3. You are now ready to persist the browser user data.
 
-### Docker compose
+#### Docker compose
 
 ```yaml
 services:
@@ -26,11 +50,6 @@ services:
       S3_SECRET_ACCESS_KEY: rustfsadmin
       S3_USER_DATA_BUCKET: user-data
     shm_size: "2gb"
-    restart: always
-  dashboard:
-    image: ghcr.io/blitzbrowser/dashboard:latest
-    ports:
-      - "3000:3000"
     restart: always
   s3:
     image: rustfs/rustfs

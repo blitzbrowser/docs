@@ -5,7 +5,7 @@ Managing browsers can be a recipe for memory leaks, zombie processes and devops 
 ## Features
 
 - [**Live View**](/self-hosted/features/live-view) - Watch and interact directly with any browser currently running.
-- [**Persistent Sessions**](/self-hosted/features/user-data-storage) - Persist your browser user data with S3.
+- [**Persistent Sessions**](/self-hosted/features/user-data-storage) - Persist your browser user data.
 - [**Proxy Support**](/self-hosted/features/http-proxy) - Connect your browsers to any HTTP proxies.
 - [**Security**](/self-hosted/features/security) - Control who can access the browsers.
 - [**Chrome DevTools Protocol**](/self-hosted/configurations/chrome-devtools-protocol) - No proprietary SDK. Connect directly from Puppeteer, Playwright or any CDP supported framework.

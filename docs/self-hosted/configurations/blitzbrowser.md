@@ -59,6 +59,12 @@ services:
 | `PORT` | Change the HTTP port the server is listening on. By default the server will listen on port `9999`. | Optional |
 | `DISABLE_SHM` | Disable the browsers shared memory features. By default the shared memory features are enabled. You should only disable them if you can't configure the shared memory of your docker container. | Optional |
 
+## Volumes
+
+If your BlitzBrowser configuration has to store any data on the disk. It will be stored in the `/blitzbrowser` folder.
+
+- User data folder: `/blitzbrowser/user-data`
+
 ## Examples
 
 ### Deploy with api key required
