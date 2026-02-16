@@ -1,6 +1,6 @@
 ---
 title: "1.4.0: Authentication and local storage"
-description: How I solved the "black box" problem of running browsers in Docker using VNC, WebSockets and noVNC.
+description: The 1.4.0 release contains a new security layer for public deployments and user data storage on local disk.
 slug: release-1.4.0
 authors: [sam_march]
 date: 2026-02-15
