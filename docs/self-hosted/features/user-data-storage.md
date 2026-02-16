@@ -33,7 +33,7 @@ To persist your browser user data in a S3 compatible service, you have to config
 To test locally BlitzBrowser with an S3 service, here is a Docker Compose file that includes BlitzBrowser and RustFS (S3) images.
 
 1. Deploy the Docker Compose file.
-2. Once running, create the bucket `user-data` in Rustfs [http://localhost:9001](http://localhost:9001).
+2. Once running, create the bucket `user-data` in RustFS [http://localhost:9001](http://localhost:9001).
 3. You are now ready to persist the browser user data.
 
 #### Docker compose
@@ -83,7 +83,7 @@ volumes:
 
 ### Connect Your Code
 
-To connect to a browser and to persist the user data. You need to use the `userDataId=${ID}` property in the CDP URL. Check the [Chrome DevTools Protocol properties](/self-hosted/configurations/chrome-devtools-protocol) to learn how to configure your browser.
+To connect to a browser and persist the user data. You need to use the `userDataId=${ID}` property in the CDP URL. Check the [Chrome DevTools Protocol properties](/self-hosted/configurations/chrome-devtools-protocol) to learn how to configure your browser.
 
 <details open>
 <summary><b>Puppeteer</b></summary>
