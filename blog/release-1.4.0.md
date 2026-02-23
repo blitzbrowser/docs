@@ -30,7 +30,7 @@ services:
     restart: always
 ```
 
-Find all the details about the [user data storage](/self-hosted/features/user-data-storage).
+Find all the details about the [user data storage](/features/user-data-storage).
 
 ## Built-in Authentication
 
@@ -43,4 +43,4 @@ Previously BlitzBrowser was open to anyone who could reach it. Version 1.4.0 int
   - Query parameter: `apiKey=${API_KEY}`
 - **Dashboard**: Users must provide the `AUTH_KEY` to log in. The dashboard uses the `BLITZBROWSER_API_KEY` to connect to the API.
 
-For detailed setup instructions, please refer to the [dashboard configuration](/self-hosted/configurations/dashboard) and the [BlitzBrowser configuration](/self-hosted/configurations/blitzbrowser) pages.
+For detailed setup instructions, please refer to the [dashboard configuration](/configurations/dashboard) and the [BlitzBrowser configuration](/configurations/blitzbrowser) pages.

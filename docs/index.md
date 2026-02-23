@@ -1,38 +1,29 @@
+# BlitzBrowser
+
 <div>
     <img style={{marginRight: '4px'}} src="https://img.shields.io/github/actions/workflow/status/blitzbrowser/blitzbrowser/cicd.yml?style=flat-square" />
     <img src="https://img.shields.io/github/v/tag/blitzbrowser/blitzbrowser?style=flat-square" />
 </div>
 
-# BlitzBrowser
-
 Managing browsers can be a recipe for memory leaks, zombie processes and devops issues. BlitzBrowser handles all the hard work of deploying and scaling the browsers, so you can focus on your code.
 
 ## Features
 
-- [**Live View**](/self-hosted/features/live-view) - Watch and interact directly with any browser currently running.
-- [**Persistent Sessions**](/self-hosted/features/user-data-storage) - Persist your browser user data.
-- [**Proxy Support**](/self-hosted/features/http-proxy) - Connect your browsers to any HTTP proxies.
-- [**Security**](/self-hosted/features/security) - Control who can access the browsers.
-- [**Chrome DevTools Protocol**](/self-hosted/configurations/chrome-devtools-protocol) - No proprietary SDK. Connect directly from Puppeteer, Playwright or any CDP supported framework.
+- [**Live View**](/features/live-view) - Watch and interact directly with any browser currently running.
+- [**Persistent Sessions**](/features/user-data-storage) - Persist your browser user data.
+- [**Proxy Support**](/features/http-proxy) - Connect your browsers to any HTTP proxies.
+- [**Security**](/features/security) - Control who can access the browsers.
+- [**Chrome DevTools Protocol**](/configurations/chrome-devtools-protocol) - No proprietary SDK. Connect directly from Puppeteer, Playwright or any CDP supported framework.
 - **Parallelism** - Spin up and run multiple browsers concurrently.
-- **Headful** - Run the browsers with a GUI to bypass bot detection and to render exactly as a user would see.
+- **Headful** - Run the browsers with a GUI to render exactly as a user would see.
 - **Queueing** - CDP connections are automatically queued while the browsers are starting.
 - **No DevOps** - Run your browsers without worrying about the infrastructure, zombie processes or a custom script. The container manages everything for you.
 
 ## Get Started
 
-### Self Hosted (Open Source)
-
 BlitzBrowser is open source on [Github](https://github.com/blitzbrowser/blitzbrowser) and under the Apache 2.0 license. You can run it in seconds with Docker.
 
-- [Self Hosted Documentation](/self-hosted/getting-started)
-
-### Cloud
-
-If you don't want to manage the infrastructure, the versions and the updates. We offer a cloud version that handles everything for you.
-
-- [Sign up at BlitzBrowser.com](https://blitzbrowser.com)
-- [Cloud Documentation](/cloud/getting-started)
+- [Get started in seconds](/getting-started)
 
 ## FAQ
 

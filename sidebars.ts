@@ -8,113 +8,59 @@ const sidebars: SidebarsConfig = {
       label: "Introduction",
     },
     {
+      type: "doc",
+      id: "getting-started",
+      label: "Getting Started",
+    },
+    {
       type: "category",
-      label: 'Self Hosted',
+      label: 'Features',
       items: [
         {
           type: "doc",
-          id: "self-hosted/getting-started",
-          label: "Getting Started",
+          id: "features/dashboard",
+          label: "Dashboard",
         },
         {
-          type: "category",
-          label: 'Features',
-          items: [
-            {
-              type: "doc",
-              id: "self-hosted/features/dashboard",
-              label: "Dashboard",
-            },
-            {
-              type: "doc",
-              id: "self-hosted/features/http-proxy",
-              label: "HTTP Proxy",
-            },
-            {
-              type: "doc",
-              id: "self-hosted/features/live-view",
-              label: "Live View",
-            },
-            {
-              type: "doc",
-              id: "self-hosted/features/security",
-              label: "Security",
-            },
-            {
-              type: "doc",
-              id: "self-hosted/features/user-data-storage",
-              label: "User Data Storage",
-            },
-          ]
+          type: "doc",
+          id: "features/http-proxy",
+          label: "HTTP Proxy",
         },
         {
-          type: "category",
-          label: 'Configurations',
-          items: [
-            {
-              type: "doc",
-              id: "self-hosted/configurations/blitzbrowser",
-              label: "BlitzBrowser",
-            },
-            {
-              type: "doc",
-              id: "self-hosted/configurations/chrome-devtools-protocol",
-              label: "Chrome DevTools Protocol (CDP)",
-            },
-            {
-              type: "doc",
-              id: "self-hosted/configurations/dashboard",
-              label: "Dashboard",
-            },
-          ]
+          type: "doc",
+          id: "features/live-view",
+          label: "Live View",
+        },
+        {
+          type: "doc",
+          id: "features/security",
+          label: "Security",
+        },
+        {
+          type: "doc",
+          id: "features/user-data-storage",
+          label: "User Data Storage",
         },
       ]
     },
     {
-      type: 'category',
-      label: 'Cloud',
+      type: "category",
+      label: 'Configurations',
       items: [
         {
           type: "doc",
-          id: "cloud/getting-started",
-          label: "Getting Started",
-        },
-        {
-          type: "category",
-          label: 'Guides',
-          items: [
-            {
-              type: "doc",
-              id: "cloud/guides/connect-puppeteer-to-blitzbrowser",
-              label: "Connect Puppeteer",
-            },
-            {
-              type: "doc",
-              id: "cloud/guides/connect-playwright-to-blitzbrowser",
-              label: "Connect Playwright",
-            },
-          ]
+          id: "configurations/blitzbrowser",
+          label: "BlitzBrowser",
         },
         {
           type: "doc",
-          id: "cloud/chrome-devtools-protocol",
+          id: "configurations/chrome-devtools-protocol",
           label: "Chrome DevTools Protocol (CDP)",
         },
         {
-          type: "category",
-          label: "REST API",
-          link: {
-            type: "generated-index",
-            title: "Cloud API",
-            description: "Explore our API endpoints",
-            slug: "/cloud/api",
-          },
-          items: require("./docs/cloud/api/sidebar.ts")
-        },
-        {
           type: "doc",
-          id: "cloud/proxy",
-          label: "Proxy",
+          id: "configurations/dashboard",
+          label: "Dashboard",
         },
       ]
     },

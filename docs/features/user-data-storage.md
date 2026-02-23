@@ -28,7 +28,7 @@ services:
 
 ### User Data Storage with S3
 
-To persist your browser user data in a S3 compatible service, you have to configure all the `S3_*` environment variables. You can find all the details in the [BlitzBrowser configuration](/self-hosted/configurations/blitzbrowser) doc.
+To persist your browser user data in a S3 compatible service, you have to configure all the `S3_*` environment variables. You can find all the details in the [BlitzBrowser configuration](/configurations/blitzbrowser) doc.
 
 To test locally BlitzBrowser with an S3 service, here is a Docker Compose file that includes BlitzBrowser and RustFS (S3) images.
 
@@ -83,7 +83,7 @@ volumes:
 
 ### Connect Your Code
 
-To connect to a browser and persist the user data. You need to use the `userDataId=${ID}` property in the CDP URL. Check the [Chrome DevTools Protocol properties](/self-hosted/configurations/chrome-devtools-protocol) to learn how to configure your browser.
+To connect to a browser and persist the user data. You need to use the `userDataId=${ID}` property in the CDP URL. Check the [Chrome DevTools Protocol properties](/configurations/chrome-devtools-protocol) to learn how to configure your browser.
 
 <details open>
 <summary><b>Puppeteer</b></summary>

@@ -1,6 +1,6 @@
 # Dashboard Configuration
 
-The [dashboard](/self-hosted/features/dashboard) is the web interface used to manage the browsers. It is deployed separately from BlitzBrowser.
+The [dashboard](/features/dashboard) is the web interface used to manage the browsers. It is deployed separately from BlitzBrowser.
 
 ## How to deploy
 

@@ -20,4 +20,4 @@ This is the most secure setup. It requires all users to be authenticated to acce
   - Query parameter: `apiKey=${API_KEY}`
 - **Dashboard**: Users must provide the `AUTH_KEY` to log in. The dashboard uses the `BLITZBROWSER_API_KEY` to connect to the API.
 
-For detailed setup instructions, please refer to the [dashboard configuration](/self-hosted/configurations/dashboard) and the [BlitzBrowser configuration](/self-hosted/configurations/blitzbrowser) pages.
+For detailed setup instructions, please refer to the [dashboard configuration](/configurations/dashboard) and the [BlitzBrowser configuration](/configurations/blitzbrowser) pages.

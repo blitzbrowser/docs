@@ -6,8 +6,8 @@ Running BlitzBrowser yourself is easy. You just need to pull the latest docker i
 
 If you want to run browsers and don't need user data storage. We recommand running the following docker container. You will be able to run as many browsers you want and connect them to any HTTP proxies.
 
-- [Looking to persist the user data?](/self-hosted/features/user-data-storage)
-- [Looking for the live view feature?](/self-hosted/features/live-view)
+- [Looking to persist the user data?](/features/user-data-storage)
+- [Looking for the live view feature?](/features/live-view)
 
 ### Docker
 
@@ -19,7 +19,7 @@ docker run -p=9999:9999 --shm-size=2g ghcr.io/blitzbrowser/blitzbrowser:latest
 
 ### Connect your code
 
-Then you have to connect your code. In general, you should only change 1 line of code to connect over CDP. Check the [Chrome DevTools Protocol properties](/self-hosted/configurations/chrome-devtools-protocol) to learn how to configure your browser.
+Then you have to connect your code. In general, you should only change 1 line of code to connect over CDP. Check the [Chrome DevTools Protocol properties](/configurations/chrome-devtools-protocol) to learn how to configure your browser.
 
 <details open>
 <summary><b>Puppeteer</b></summary>

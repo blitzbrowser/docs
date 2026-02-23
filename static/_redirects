@@ -1,4 +1,14 @@
-/self-hosted/chrome-devtools-protocol /self-hosted/configurations/chrome-devtools-protocol 302
-/self-hosted/dashboard /self-hosted/features/dashboard 302
-/self-hosted/user-data-storage /self-hosted/features/user-data-storage 302
-/self-hosted/live-view /self-hosted/features/live-view 302
+/self-hosted/chrome-devtools-protocol /configurations/chrome-devtools-protocol 301
+/self-hosted/dashboard /features/dashboard 301
+/self-hosted/user-data-storage /features/user-data-storage 301
+/self-hosted/live-view /features/live-view 301
+
+/self-hosted/getting-started /getting-started 301
+/self-hosted/configurations/chrome-devtools-protocol /configurations/chrome-devtools-protocol 301
+/self-hosted/configurations/blitzbrowser /configurations/blitzbrowser 301
+/self-hosted/configurations/dashboard /configurations/dashboard 301
+/self-hosted/features/dashboard /features/dashboard 301
+/self-hosted/features/security /features/security 301
+/self-hosted/features/http-proxy /features/http-proxy 301
+/self-hosted/features/user-data-storage /features/user-data-storage 301
+/self-hosted/features/live-view /features/live-view 301

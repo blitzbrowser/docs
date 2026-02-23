@@ -8,11 +8,11 @@ BlitzBrowser is the engine managing and running the browsers. It will:
 - Proxy all the browsers' requests to HTTP proxies.
 - Queue all CDP requests to avoid overloading the host.
 
-The dashboard isn't deployed with BlitzBrowser. You need to deploy it separately. You can find all the details in the [dashboard configuration](/self-hosted/configurations/dashboard).
+The dashboard isn't deployed with BlitzBrowser. You need to deploy it separately. You can find all the details in the [dashboard configuration](/configurations/dashboard).
 
 ## How to deploy
 
-Docker is the fastest way to deploy BlitzBrowser. Since BlitzBrowser is a standalone engine, you can run it with Docker CLI for a quick deployment or with Docker Compose if you plan to deploy an S3 service for [user data storage](/self-hosted/features/user-data-storage) and the [dashboard](/self-hosted/features/dashboard).
+Docker is the fastest way to deploy BlitzBrowser. Since BlitzBrowser is a standalone engine, you can run it with Docker CLI for a quick deployment or with Docker Compose if you plan to deploy an S3 service for [user data storage](/features/user-data-storage) and the [dashboard](/features/dashboard).
 
 ### Docker Image
 

@@ -11,7 +11,7 @@ This stack will allow you to do web scraping from any websites while running eve
 - Python installed.
 - [UV](https://github.com/astral-sh/uv) to create your virtual python environment.
 - [Ollama](https://ollama.com/) installed with `ollama/gemma3:4b`.
-- [BlitzBrowser](/self-hosted/features/dashboard) installed with the dashboard.
+- [BlitzBrowser](/features/dashboard) installed with the dashboard.
 
 ## Prepare your environment
 

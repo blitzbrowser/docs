@@ -20,9 +20,6 @@ importers:
       clsx:
         specifier: ^2.0.0
         version: 2.1.1
-      docusaurus-plugin-openapi-docs:
-        specifier: ^4.6.0
-        version: 4.6.0(@docusaurus/plugin-content-docs@3.9.2(@mdx-js/react@3.1.1(@types/react@19.2.9)(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(typescript@5.6.3))(@docusaurus/utils-validation@3.9.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(@docusaurus/utils@3.9.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react@19.2.3)
       docusaurus-theme-openapi-docs:
         specifier: ^4.6.0
         version: 4.6.0(@docusaurus/theme-common@3.9.2(@docusaurus/plugin-content-docs@3.9.2(@mdx-js/react@3.1.1(@types/react@19.2.9)(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(typescript@5.6.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(@types/react@19.2.9)(docusaurus-plugin-openapi-docs@4.6.0(@docusaurus/plugin-content-docs@3.9.2(@mdx-js/react@3.1.1(@types/react@19.2.9)(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(typescript@5.6.3))(@docusaurus/utils-validation@3.9.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(@docusaurus/utils@3.9.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react@19.2.3))(docusaurus-plugin-sass@0.2.6(@docusaurus/core@3.9.2(@mdx-js/react@3.1.1(@types/react@19.2.9)(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(typescript@5.6.3))(sass@1.97.3)(webpack@5.104.1))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(redux@5.0.1)(webpack@5.104.1)

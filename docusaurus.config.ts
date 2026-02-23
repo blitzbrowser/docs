@@ -1,7 +1,6 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
   title: 'BlitzBrowser',
@@ -163,24 +162,7 @@ const config: Config = {
     },
   } satisfies Preset.ThemeConfig,
 
-  plugins: [
-    [
-      'docusaurus-plugin-openapi-docs',
-      {
-        id: "api",
-        docsPluginId: "classic",
-        config: {
-          cloud: {
-            specPath: "openapi/cloud.yaml",
-            outputDir: "docs/cloud/api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          } satisfies OpenApiPlugin.Options,
-        }
-      },
-    ],
-  ],
+  plugins: [],
   themes: ["docusaurus-theme-openapi-docs"],
   scripts: [
     {
