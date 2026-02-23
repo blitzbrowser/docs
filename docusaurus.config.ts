@@ -109,16 +109,16 @@ const config: Config = {
           title: 'Contact Us',
           items: [
             {
+              label: 'Github',
+              to: 'https://github.com/blitzbrowser/blitzbrowser',
+            },
+            {
               label: 'Discord',
               to: 'https://discord.gg/qZ3tCZJ2Ze',
             },
             {
               label: 'Reddit',
               to: 'https://www.reddit.com/r/BlitzBrowser/',
-            },
-            {
-              label: 'support@blitzbrowser.com',
-              to: 'mailto:support@blitzbrowser.com',
             },
           ],
         },
