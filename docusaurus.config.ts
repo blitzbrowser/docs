@@ -85,23 +85,6 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Cloud Product',
-          items: [
-            {
-              label: 'Use Cases',
-              to: 'https://blitzbrowser.com/#use-cases',
-            },
-            {
-              label: 'How To Use',
-              to: 'https://blitzbrowser.com/#how-to-use',
-            },
-            {
-              label: 'Pricing',
-              to: 'https://blitzbrowser.com/#pricing',
-            },
-          ],
-        },
-        {
           title: 'Resources',
           items: [
             {
@@ -119,19 +102,6 @@ const config: Config = {
             {
               label: 'Status',
               to: 'https://status.blitzbrowser.com',
-            },
-          ],
-        },
-        {
-          title: 'Legal',
-          items: [
-            {
-              label: 'Terms of Service',
-              to: 'https://blitzbrowser.com/terms-of-service',
-            },
-            {
-              label: 'Privacy Policy',
-              to: 'https://blitzbrowser.com/privacy-policy',
             },
           ],
         },

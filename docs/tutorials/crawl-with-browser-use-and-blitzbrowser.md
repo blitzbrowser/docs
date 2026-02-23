@@ -47,7 +47,7 @@ asyncio.run(main())
 
 ## Run your AI browser agent
 
-This example contains everything to run [Browser Use](https://browser-use.com/) and BlitzBrowser out-of-the-box. This example will go on [docs.blitzBrowser.com](https://blitzbrowser.com/), find all the documentation and return the results in a JSON array.
+This example contains everything to run [Browser Use](https://browser-use.com/) and BlitzBrowser out-of-the-box. This example will go on [docs.blitzBrowser.com](https://docs.blitzbrowser.com/), find all the documentation and return the results in a JSON array.
 
 ## Conclusion
 
