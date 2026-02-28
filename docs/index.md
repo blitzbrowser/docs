@@ -14,6 +14,7 @@ Managing browsers can be a recipe for memory leaks, zombie processes and devops 
 - [**Proxy Support**](/features/http-proxy) - Connect your browsers to any HTTP proxies.
 - [**Security**](/features/security) - Control who can access the browsers.
 - [**Chrome DevTools Protocol**](/configurations/chrome-devtools-protocol) - No proprietary SDK. Connect directly from Puppeteer, Playwright or any CDP supported framework.
+- [**Google Chrome Versions**](/features/google-chrome-versions) - Run any google chrome version from 116 to the latest one.
 - **Parallelism** - Spin up and run multiple browsers concurrently.
 - **Headful** - Run the browsers with a GUI to render exactly as a user would see.
 - **Queueing** - CDP connections are automatically queued while the browsers are starting.

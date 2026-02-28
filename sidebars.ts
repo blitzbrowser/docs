@@ -23,6 +23,11 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "features/google-chrome-versions",
+          label: "Google Chrome Versions",
+        },
+        {
+          type: "doc",
           id: "features/http-proxy",
           label: "HTTP Proxy",
         },

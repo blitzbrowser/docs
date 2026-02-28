@@ -64,6 +64,7 @@ services:
 If your BlitzBrowser configuration has to store any data on the disk. It will be stored in the `/blitzbrowser` folder.
 
 - User data folder: `/blitzbrowser/user-data`
+- Browsers binaries: `/blitzbrowser/browsers`
 
 ## Examples
 
