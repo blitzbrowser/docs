@@ -26,6 +26,38 @@ BlitzBrowser is open source on [Github](https://github.com/blitzbrowser/blitzbro
 
 - [Get started in seconds](/getting-started)
 
+## Changelog
+
+### 1.5.0
+
+February 28, 2026
+
+- Support running any [Google Chrome version](/features/google-chrome-versions) since 116.
+
+### 1.4.0
+
+February 15, 2026
+
+- Browser user data can now be stored on local disk or with an S3 provider. All details [here](/features/user-data-storage).
+
+### 1.3.0
+
+February 14, 2026
+
+- BlitzBrowser and the dashboard now support [authentication](/features/security).
+
+### 1.2.0
+
+February 1, 2026
+
+- Added [Live View](/features/live-view) and the [dashboard](/features/dashboard).
+
+### 1.1.4
+
+January 15, 2026
+
+- Released the open source version of BlitzBrowser.com(Cloud version, now closed).
+
 ## FAQ
 
 ### BlitzBrowser vs. Puppeteer/Playwright
