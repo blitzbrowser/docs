@@ -37,6 +37,7 @@ services:
 | `BLITZBROWSER_API_URL` | If you are not hosting BlitzBrowser on `localhost:9999`. You need to configure the URL to use to connect to the API. By default, the dashboard will connect to `http://localhost:9999`. The dashboard is client side, the API URL has to be accessible from your web browser. | Optional |
 | `BLITZBROWSER_API_KEY` | If you configured BlitzBrowser to require an API key. You need to set the key to use. By default, the dashboard will connect to the API without an API key. | Optional |
 | `HTTPS_DISABLED` | If you want to run the dashboard on an unsecure network. You need to explicitly disable HTTPS. By default HTTPS is required to transfer the cookies from the server to the client. If `HTTPS_DISABLED=true`, you will be able to authenticate to the dashboard without HTTPS. | Optional |
+| `PROXY_BLITZBROWSER_API` | By default, your web browser connects to the BlitzBrowser API directly, which means the API must be reachable from your browser. Set this to `true` to route API requests through the dashboard server instead. This is useful when the dashboard is behind a reverse proxy and you don't want to expose the BlitzBrowser API to the public network. | Optional |
 
 ## Examples
 
